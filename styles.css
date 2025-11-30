@@ -76,6 +76,10 @@ html, body {
   transition: background 0.3s, transform 0.3s;
 }
 
+#nav li:hover:not(.active) {
+  background: #8B6F47;
+}
+
 #nav li.active {
   background: #333;
   transform: scale(1.4);
