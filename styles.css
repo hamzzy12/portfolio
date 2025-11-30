@@ -83,5 +83,4 @@ html, body {
 #nav li.active {
   background: #FF8C00;
   transform: scale(1.4);
-  border: 2px solid #FFB347;
 }
