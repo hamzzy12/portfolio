@@ -81,6 +81,7 @@ html, body {
 }
 
 #nav li.active {
-  background: #333;
+  background: #FF8C00;
   transform: scale(1.4);
+  box-shadow: 0 0 15px #FF8C00, 0 0 25px #FF8C00;
 }
