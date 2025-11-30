@@ -70,7 +70,7 @@ html, body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #cfcfcf;
+  background: #d3d3d3;
   margin: 8px 0;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
