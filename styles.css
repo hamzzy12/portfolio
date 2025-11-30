@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+[class^="wrap"] {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+
+  background-size: 92% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 섹션 등장 애니메이션 */
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.5s ease, transform 0.7s ease;
+}
+
+[class^="wrap"].visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 이미지 설정 */
+.wrap1  { background-image: url(./image/1.png); }
+.wrap2  { background-image: url(./image/2.png); }
+.wrap3  { background-image: url(./image/3.png); }
+.wrap4  { background-image: url(./image/4.png); }
+.wrap5  { background-image: url(./image/5.png); }
+.wrap6  { background-image: url(./image/6.png); }
+.wrap7  { background-image: url(./image/7.png); }
+.wrap8  { background-image: url(./image/8.png); }
+.wrap9  { background-image: url(./image/9.png); }
+.wrap10 { background-image: url(./image/10.png); }
+.wrap11 { background-image: url(./image/11.png); }
+.wrap12 { background-image: url(./image/12.png); }
+.wrap13 { background-image: url(./image/13.png); }
+.wrap14 { background-image: url(./image/14.png); }
+.wrap15 { background-image: url(./image/15.png); }
+.wrap16 { background-image: url(./image/16.png); }
+
+
+/* 우측 동그란 네비게이션 */
+#nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#nav li.active {
+  background: #333;
+  transform: scale(1.4);
+}
