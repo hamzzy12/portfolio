@@ -126,7 +126,7 @@ html, body {
 /* 모바일 가로 모드 (landscape) */
 @media (max-width: 768px) and (orientation: landscape) {
   [class^="wrap"] {
-    background-size: auto 95%;
+    background-size: cover;
     background-position: center center;
   }
 }
