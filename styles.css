@@ -4,18 +4,31 @@ html, body {
   height: 100%;
   overflow: hidden;
   background-color: #ffffff;
+  /* 모바일 브라우저 UI 숨기기 */
+  position: fixed;
+  width: 100%;
+}
+
+/* 모바일 브라우저 주소창 제거 */
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available;
+  }
 }
 
 #container {
   height: 100vh;
+  height: -webkit-fill-available;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 [class^="wrap"] {
   width: 100%;
   height: 100vh;
+  height: -webkit-fill-available;
   scroll-snap-align: start;
 
   background-size: contain;
@@ -27,7 +40,7 @@ html, body {
   transform: scale(0.97);
   transition: opacity 0.5s ease, transform 0.7s ease;
 }
-
+ 
 [class^="wrap"].visible {
   opacity: 1;
   transform: scale(1);

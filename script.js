@@ -5,6 +5,23 @@ const navItems = document.querySelectorAll("#nav li");
 // 처음 섹션 보이게 설정
 sections[0].classList.add("visible");
 
+// 모바일 브라우저 주소창 숨기기
+function hideAddressBar() {
+    if (window.innerHeight < window.outerHeight) {
+        window.scrollTo(0, 1);
+    }
+}
+
+// 페이지 로드 시 주소창 숨기기
+window.addEventListener('load', () => {
+    setTimeout(hideAddressBar, 100);
+});
+
+// 화면 리사이즈 시에도 적용
+window.addEventListener('resize', () => {
+    setTimeout(hideAddressBar, 100);
+});
+
 // 사용자 행동 추적 함수
 function trackUserBehavior(eventName, eventData = {}) {
     // Clarity 커스텀 이벤트
