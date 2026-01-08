@@ -74,3 +74,22 @@ document.addEventListener('click', (e) => {
         element_text: target.innerText?.substring(0, 50)
     });
 }, true);
+
+// 모바일 가로 모드에서 터치 시 UI 숨기기/보이기
+let uiVisible = true;
+const nav = document.getElementById('nav');
+
+function isLandscapeMobile() {
+    return window.matchMedia('(max-width: 768px) and (orientation: landscape)').matches;
+}
+
+container.addEventListener('click', (e) => {
+    // 네비게이션 클릭은 제외
+    if (e.target.closest('#nav')) return;
+    
+    // 가로 모드일 때만 작동
+    if (isLandscapeMobile()) {
+        uiVisible = !uiVisible;
+        nav.classList.toggle('hidden', !uiVisible);
+    }
+});

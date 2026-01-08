@@ -130,3 +130,14 @@ html, body {
     background-position: center center;
   }
 }
+
+/* UI 숨김 효과 */
+#nav {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#nav.hidden {
+  opacity: 0;
+  transform: translateY(-50%) translateX(100px);
+  pointer-events: none;
+}
