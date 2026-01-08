@@ -5,22 +5,40 @@ const navItems = document.querySelectorAll("#nav li");
 // 처음 섹션 보이게 설정
 sections[0].classList.add("visible");
 
-// 모바일 브라우저 주소창 숨기기
+// 모바일 브라우저 주소창 완전히 숨기기
 function hideAddressBar() {
-    if (window.innerHeight < window.outerHeight) {
-        window.scrollTo(0, 1);
-    }
+    // 스크롤하여 주소창 숨기기
+    window.scrollTo(0, 1);
+    document.body.scrollTop = 1;
+    
+    // 100vh 재계산
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
 // 페이지 로드 시 주소창 숨기기
 window.addEventListener('load', () => {
+    hideAddressBar();
+    setTimeout(hideAddressBar, 100);
+    setTimeout(hideAddressBar, 500);
+});
+
+// 화면 리사이즈/회전 시에도 적용
+window.addEventListener('resize', () => {
+    hideAddressBar();
+});
+
+window.addEventListener('orientationchange', () => {
     setTimeout(hideAddressBar, 100);
 });
 
-// 화면 리사이즈 시에도 적용
-window.addEventListener('resize', () => {
-    setTimeout(hideAddressBar, 100);
-});
+// 터치 시작 시 주소창 숨기기
+let lastScroll = 0;
+container.addEventListener('touchstart', () => {
+    if (container.scrollTop === 0) {
+        container.scrollTop = 1;
+    }
+}, { passive: true });
 
 // 사용자 행동 추적 함수
 function trackUserBehavior(eventName, eventData = {}) {

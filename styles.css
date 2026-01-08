@@ -1,28 +1,46 @@
-html, body {
+html {
+  height: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+body {
   margin: 0;
   padding: 0;
   height: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
   overflow: hidden;
   background-color: #ffffff;
-  /* 모바일 브라우저 UI 숨기기 */
   position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
+  overscroll-behavior: none;
 }
 
-/* 모바일 브라우저 주소창 제거 */
+/* 모바일 브라우저 주소창 완전 제거 */
 @supports (-webkit-touch-callout: none) {
-  body {
+  html, body {
     height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
   }
 }
 
 #container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   height: 100vh;
   height: -webkit-fill-available;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 [class^="wrap"] {
